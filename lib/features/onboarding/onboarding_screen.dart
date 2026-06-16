@@ -43,7 +43,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // 1. Area PageView Konten (Card Tengah)
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
@@ -66,13 +65,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Bagian Ilustrasi Gambar
                           Expanded(
                             child: Center(
                               child: Image.asset(
                                 item['image']!,
                                 fit: BoxFit.contain,
-                                // Jika file gambar belum siap, gunakan placeholder sementara:
                                 errorBuilder: (context, error, stackTrace) {
                                   return const FaIcon(
                                     FontAwesomeIcons.image,
@@ -85,7 +82,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                           const SizedBox(height: 20),
 
-                          // Tag Badge (Aktivitas / Nutrisi / Progress)
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                             decoration: BoxDecoration(
@@ -103,7 +99,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Judul dengan Dua Warna (RichText)
                           RichText(
                             text: TextSpan(
                               style: const TextStyle(
@@ -126,7 +121,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Deskripsi
                           Text(
                             item['description']!,
                             style: const TextStyle(
@@ -144,13 +138,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
 
-            // 2. Kontrol Navigasi Bawah (Skip, Indikator, Next)
             Padding(
               padding: const EdgeInsets.only(left: 32, right: 32, bottom: 40, top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Tombol SKIP
                   TextButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, '/login');
@@ -166,7 +158,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
 
-                  // Indikator Halaman (3 Garis Horizontal)
+
                   Row(
                     children: List.generate(
                       _onboardingData.length,
@@ -185,7 +177,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
 
-                  // Tombol Lingkaran Oranye (Next / Finish)
                   GestureDetector(
                     onTap: () {
                       if (_currentPage < _onboardingData.length - 1) {
@@ -194,7 +185,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           curve: Curves.easeInOut,
                         );
                       } else {
-                        // Jika sudah di halaman terakhir, arahkan ke Login
                         Navigator.pushReplacementNamed(context, '/login');
                       }
                     },
