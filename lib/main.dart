@@ -6,7 +6,7 @@ import 'features/onboarding/splash.dart';
 import 'features/onboarding/onboarding_screen.dart';
 import 'features/auth/login.dart';
 import 'features/auth/signup.dart';
-
+import 'features/shell/app_shell.dart';
 
 void main() {
   runApp(const FitnesPalApp());
@@ -28,9 +28,9 @@ class FitnesPalApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/onboarding': (context) => const OnboardingScreen(),
-        '/login':(context) => const LoginScreen(),
-        '/signup':(context) => const SignUpScreen(),
-
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignUpScreen(),
+        '/home': (context) => const AppShell(),
       },
     );
   }

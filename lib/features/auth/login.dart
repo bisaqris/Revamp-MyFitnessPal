@@ -23,8 +23,8 @@ class LoginScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    const Color(0xFFFF8E00).withOpacity(0.3),
-                    const Color(0xFFFF8E00).withOpacity(0.0),
+                    const Color(0xFFFF8E00).withValues(alpha: 0.3),
+                    const Color(0xFFFF8E00).withValues(alpha: 0.0),
                   ],
                   radius: 0.5,
                 ),
@@ -50,10 +50,10 @@ class LoginScreen extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(24.0),
                       decoration: BoxDecoration(
-                        color: AppColors.surface.withOpacity(0.5),
+                        color: AppColors.surface.withValues(alpha: 0.5),
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.05),
+                          color: Colors.white.withValues(alpha: 0.05),
                           width: 1,
                         ),
                       ),
@@ -96,6 +96,7 @@ class LoginScreen extends StatelessWidget {
                           PrimaryButton(
                             text: 'Login',
                             onPressed: () {
+                              Navigator.pushReplacementNamed(context, '/home');
                             },
                           ),
                           const SizedBox(height: 16),
