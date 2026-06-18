@@ -29,7 +29,11 @@ class _AppShellState extends State<AppShell> {
       _showAddBottomSheet();
       return;
     }
-    setState(() => _currentIndex = index);
+    if (_currentIndex == index) {
+      _navKeys[index].currentState?.popUntil((route) => route.isFirst);
+    } else {
+      setState(() => _currentIndex = index);
+    }
   }
 
   void _showAddBottomSheet() {
